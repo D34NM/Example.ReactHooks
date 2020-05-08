@@ -27,7 +27,7 @@ const reducer = (state, action) => {
 const App = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  const URL = "http://localhost:80/heros";
+  const URL = "http://localhost:80/heroes";
 
   useEffect(() => {
     fetch(URL)
