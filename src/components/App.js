@@ -1,4 +1,4 @@
-import React, { useReducer } from "react";
+import React, { useReducer, useEffect } from "react";
 import "./App.css";
 import Header from "./Header";
 import Search from "./Search";
@@ -27,12 +27,26 @@ const reducer = (state, action) => {
 const App = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
+  const URL = "http://localhost:80/heros";
+
+  useEffect(() => {
+    fetch(URL)
+      .then(response => response.json())
+      .then(jsonResponse => {
+        dispatch({
+          type: "SEARCH_HEROES_SUCCESS",
+          payload: jsonResponse
+        })
+      });
+  }, []);
+
   const search = (searchValue) => {
     dispatch({
       type: "SEARCH_HEROES_REQUEST",
     });
 
-    fetch("http://localhost:80/heros")
+    
+    fetch(URL)
       .then((response) => response.json())
       .then((jsonResponse) => {
         let result = jsonResponse.filter(hero =>
