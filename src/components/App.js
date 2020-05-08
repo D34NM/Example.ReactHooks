@@ -5,7 +5,7 @@ import Search from "./Search";
 import Hero from "./Hero";
 
 const initialState = {
-  heroes: [],
+  heroes: []
 };
 
 const reducer = (state, action) => {
@@ -44,7 +44,6 @@ const App = () => {
     dispatch({
       type: "SEARCH_HEROES_REQUEST",
     });
-
     
     fetch(URL)
       .then((response) => response.json())
