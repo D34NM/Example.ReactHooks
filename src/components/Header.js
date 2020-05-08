@@ -1,6 +1,6 @@
 import React from "react";
 
-const Main = (props) => {
+const Header = (props) => {
   return (
     <header className="App-header">
       <h2>{props.text}</h2>
@@ -8,4 +8,4 @@ const Main = (props) => {
   );
 };
 
-export default Main;
+export default Header;
